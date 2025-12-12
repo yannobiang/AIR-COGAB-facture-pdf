@@ -212,6 +212,22 @@
   </p>
 
 </div>
+<script>
+  const params = new URLSearchParams(window.location.search);
 
+  function fill(id, key) {
+    const el = document.getElementById(id);
+    if (el && params.get(key)) {
+      el.textContent = params.get(key);
+    }
+  }
+
+  fill("montant", "montant");
+  fill("id_paiement", "id_paiement");
+  fill("date_paiement", "date_paiement");
+  fill("nom_expediteur", "nom_expediteur");
+  fill("email_expediteur", "email_expediteur");
+  fill("poids_pris", "poids_pris");
+</script>
 </body>
 </html>
