@@ -166,7 +166,7 @@
   <!-- MONTANT -->
   <div class="section box amount-box">
     <div class="label">Montant payé</div>
-    <div class="value">{{ montant }} €</div>
+    <div class="value"><span id="montant"></span> €</div>
   </div>
 
   <!-- 2 COLONNES : PAIEMENT / EXPÉDITEUR -->
@@ -175,17 +175,17 @@
       <td>
         <div class="section box">
           <div class="label">Référence du paiement</div>
-          <div class="value">{{ id_paiement }}</div>
+          <div class="value"><span id="id_paiement"></span></div>
 
           <div class="label" style="margin-top:10px;">Date du paiement</div>
-          <div class="value">{{ date_paiement }}</div>
+          <div class="value"><span id="date_paiement"></span></div>
         </div>
       </td>
       <td>
         <div class="section box">
           <div class="label">Paiement effectué par</div>
-          <div class="value">
-            {{ nom_expediteur }} ({{ email_expediteur }})
+          <div class="value"><span id="nom_expediteur"></span>(<span id="email_expediteur"></span>)
+           
           </div>
         </div>
       </td>
@@ -196,10 +196,10 @@
   <div class="section box">
     <div class="label">Voyage réservé</div>
     <div class="value">
-      Voyage ID : {{ id_voyage }} <br>
-      Voyageur : {{ voyageur_email }} <br>
-      Poids reservé en kg : {{ poids_pris }} <br>
-      Numero du voyageur : {{ number }}
+      Voyage ID : <span id="id_voyage"></span><br>
+      Voyageur : <span id="voyageur_email"></span><br>
+      Poids reservé en kg : <span id="poids_pris"></span><br>
+      Numero du voyageur : <span id="number"></span>
     </div>
   </div>
 
