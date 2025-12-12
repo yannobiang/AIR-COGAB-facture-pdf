@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      margin: 0;
+      background: #f3f4f6;
+      color: #111827;
+    }
+
+    .invoice-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      padding: 24px 28px 30px;
+    }
+
+    .header {
+      display: table;
+      width: 100%;
+      margin-bottom: 18px;
+    }
+
+    .header-left,
+    .header-right {
+      display: table-cell;
+      vertical-align: top;
+    }
+
+    .header-left {
+      width: 40%;
+    }
+
+    .header-right {
+      width: 60%;
+      text-align: right;
+      font-size: 12px;
+      color: #4b5563;
+    }
+
+    .logo {
+      max-width: 160px;
+      height: auto;
+    }
+
+    .company-name {
+      font-size: 16px;
+      font-weight: bold;
+      color: #00A86B;
+      margin-bottom: 4px;
+    }
+
+    h1 {
+      color: #00A86B;
+      font-size: 22px;
+      margin: 12px 0 6px;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: #6b7280;
+      margin-bottom: 14px;
+    }
+
+    .section {
+      margin-bottom: 16px;
+    }
+
+    .box {
+      border: 1px solid #e5e7eb;
+      padding: 14px 16px;
+      border-radius: 8px;
+      background: #f9fafb;
+    }
+
+    .label {
+      color: #6b7280;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .value {
+      font-size: 14px;
+      margin-top: 4px;
+      color: #111827;
+      font-weight: 500;
+    }
+
+    .amount-box {
+      background: #ecfdf3;
+      border-color: #bbf7d0;
+    }
+
+    .amount-box .value {
+      font-size: 18px;
+      font-weight: bold;
+      color: #15803d;
+    }
+
+    .two-columns {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+    }
+
+    .two-columns td {
+      vertical-align: top;
+      padding: 0;
+      width: 50%;
+    }
+
+    .footer-text {
+      margin-top: 26px;
+      font-size: 11px;
+      color: #9ca3af;
+      text-align: center;
+    }
+
+    .thanks {
+      margin-top: 22px;
+      font-size: 12px;
+      color: #4b5563;
+      text-align: center;
+    }
+
+    .brand {
+      color: #00A86B;
+      font-weight: 600;
+    }
+    @page {size : A4; margin: 16mm;}
+    body {font-family:Arial, sans-serif;}
+  </style>
+</head>
+<body>
+
+<div class="invoice-wrapper">
+
+  <!-- EN-TÊTE AVEC LOGO + INFOS -->
+  <div class="header">
+    <div class="header-left">
+      <!-- Remplace l’URL par celle de ton logo -->
+     <img class="logo" src="https://drive.google.com/uc?export=view&id=1khdCrkjfHbknnv7Q3qaGQc_3K7_S-MK1" alt="AIR COGAB">
+    </div>
+    <div class="header-right">
+      <div class="company-name">AIR COGAB</div>
+      <div>Plateforme de mise en relation expéditeurs & voyageurs</div>
+      <div><a href="https://air-cogab.glide.page/dl/331fd5">Contact AIR COGAB</a></div>
+    </div>
+  </div>
+
+  <h1>Facture de paiement</h1>
+  <div class="subtitle">
+    Référence : <strong>{{ id_paiement }}</strong> • Date : {{ date_paiement }}
+  </div>
+
+  <!-- MONTANT -->
+  <div class="section box amount-box">
+    <div class="label">Montant payé</div>
+    <div class="value">{{ montant }} €</div>
+  </div>
+
+  <!-- 2 COLONNES : PAIEMENT / EXPÉDITEUR -->
+  <table class="two-columns">
+    <tr>
+      <td>
+        <div class="section box">
+          <div class="label">Référence du paiement</div>
+          <div class="value">{{ id_paiement }}</div>
+
+          <div class="label" style="margin-top:10px;">Date du paiement</div>
+          <div class="value">{{ date_paiement }}</div>
+        </div>
+      </td>
+      <td>
+        <div class="section box">
+          <div class="label">Paiement effectué par</div>
+          <div class="value">
+            {{ nom_expediteur }} ({{ email_expediteur }})
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- VOYAGE -->
+  <div class="section box">
+    <div class="label">Voyage réservé</div>
+    <div class="value">
+      Voyage ID : {{ id_voyage }} <br>
+      Voyageur : {{ voyageur_email }} <br>
+      Poids reservé en kg : {{ poids_pris }} <br>
+      Numero du voyageur : {{ number }}
+    </div>
+  </div>
+
+  <p class="thanks">
+    Merci d’avoir choisi <span class="brand">AIR COGAB</span> ☺️
+  </p>
+
+  <p class="footer-text">
+    Ce document est généré automatiquement à partir de votre paiement. Conservez cette facture pour vos archives.
+  </p>
+
+</div>
+
+</body>
+</html>
